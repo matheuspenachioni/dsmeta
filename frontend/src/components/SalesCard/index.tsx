@@ -9,6 +9,7 @@ import ptbr from 'date-fns/locale/pt-BR';
 registerLocale('ptbr', ptbr)
 
 import NotitficationButton from '../NotificationButton';
+import { Sale } from '../../models/sale'
 import './styles.css';
 
 function SalesCard() {
@@ -22,7 +23,7 @@ function SalesCard() {
     const [sales, setSales] = useState<Sale[]>([]);
 
     useEffect(() => {
-        axios.get(`${BASE_URL}/sales`).then(response =>{
+        axios.get(`${BASE_URL}/sales`).then(response => {
             setSales(response.data.content);
         })
     }, []);
@@ -84,7 +85,7 @@ function SalesCard() {
                                 )
                             })
                         }
-                        
+
                     </tbody>
 
                 </table>
